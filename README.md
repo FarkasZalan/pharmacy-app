@@ -1,6 +1,6 @@
-# PharmacyApp
+# Online gyógyszertár
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+Webfejlesztési keretrendszerek 2024 projekt
 
 ## Development server
 
