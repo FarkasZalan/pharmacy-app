@@ -1,0 +1,28 @@
+<div class="login-container">
+    <form class="login-form" (ngSubmit)="login()" #form="ngForm">
+      <h2>Bejelentkezés</h2>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        ngModel
+        placeholder="email cím megadása" 
+        required>
+      </div>
+      <div class="form-group">
+        <label for="password">Jelszó:</label>
+        <input 
+        type="password" 
+        id="password"
+         name="password" 
+         ngModel
+         placeholder="jelszó megadása"
+         required>
+      </div>
+      <button type="submit">Bejelentkezés</button><br>
+      <p>Még nincsen fiókod?</p>
+      <button type="button" (click)="goToRegister()" class="register-btn">Regisztráció</button>
+    </form>
+  </div>

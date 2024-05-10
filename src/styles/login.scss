@@ -1,0 +1,80 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .login-form {
+    width: 320px; /* Adjusted width to accommodate the button */
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+    align-self: flex-start; /* Align labels to the left */
+  }
+  
+  input[type="email"]:focus,
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  input[type="email"],
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00d68f;
+    color: #fff;
+    border: 1px solid #01bb7d; /* Added border for consistency */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  button:hover {
+    background-color: #2ce69b;
+  }
+
+  .register-btn {
+    background-color: #00d68f; /* Different color for register button */
+    border-color: #01bb7d;
+  }
+  
+  .register-btn:hover {
+    background-color: #2ce69b;
+  }

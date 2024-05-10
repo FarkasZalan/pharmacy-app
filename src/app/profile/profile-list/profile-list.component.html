@@ -1,0 +1,35 @@
+
+
+<div class="profile-text">
+    <h1>Felhasználói profil</h1>
+  </div>
+  <div class="container">
+    <div class="user-details">
+      <h2>Felhasználó adatai</h2>
+      <!-- Display user details here -->
+      <p>Név: {{ currentUser.name }}</p>
+      <p>Email: {{ currentUser.email }}</p>
+      <p>Cím: {{ currentUser.address }}</p>
+      <i class="material-icons edit-profile">edit</i>
+    </div>
+    <div class="latest-orders">
+      <h2>Legutóbbi rendelések</h2>
+
+      <div class="order">
+        <p>Order ID: 123456</p>
+        <p>Items: Medicine A, Medicine B</p>
+        <p>Total: $50.00</p>
+      </div>
+      <div class="order">
+        <p>Rendelés azonosító: 789012</p>
+        <p>Termékek: Medicine C, Medicine D</p>
+        <p>Összesen: $70.00</p>
+      </div>
+    </div>
+    <div class="logout-btn-container">
+        <button (click)="logOut()" class="logout-btn">Kijelentkezés</button>
+    </div><br>
+    <div class="logout-btn-container">
+        <button (click)="profileDelete()" class="logout-btn">Profil törlése</button>
+    </div>
+  </div>

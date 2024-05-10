@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: bisque;
+    padding: 10px 20px;
+    flex-shrink: 0; /* Prevents the header from shrinking */
+    width: 100%; /* Ensure header takes up full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    overflow: hidden; /* Prevents overflow of child elements */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.icons {
+    display: flex;
+    gap: 20px;
+    padding-right: 2%;
+    white-space: nowrap;
+}
+
+.account-icon:hover {
+    cursor: pointer;
+}
+
+.cart-icon:hover {
+    cursor: pointer;
+}
+
+.login-icon:hover {
+    cursor: pointer;
+}

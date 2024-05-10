@@ -1,0 +1,64 @@
+.profile-text {
+    padding: 20px;
+    text-align: center;
+  }
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .user-details {
+    margin-bottom: 20px;
+  }
+
+  .user-details:hover {
+    background-color: #efecec;
+
+  }
+
+  .latest-orders {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+  .order {
+    margin-bottom: 10px;
+  }
+  .logout-btn-container {
+    text-align: center;
+  }
+  .logout-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  .logout-btn:hover {
+    background-color: #c82333;
+  }
+
+  .user-details {
+    position: relative;
+  }
+  
+  .edit-profile {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    font-size: 40px;
+  }
+  
+  .user-details:hover .edit-profile {
+    opacity: 1;
+  }

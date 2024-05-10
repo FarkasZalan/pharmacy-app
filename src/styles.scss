@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif; /* Moved font-family to body */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #efefef !important;
+}
+
+.content {
+    padding: 6%;
+    padding-left: 5%;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1%;
+    background-color: #efefef;
+}
