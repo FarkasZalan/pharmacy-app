@@ -1,12 +1,15 @@
 <div class="header">
     <div class="logo-container">
         <div class="logo">
-            <a href="#" (click)="navigateHome()">online pharmacy</a>
+            <a href="#" (click)="navigateHome()">Magic pharmacy</a>
         </div>
     </div>
     <div *ngIf="userLoggedIn" class="icons">
         <i (click)="navigateToAccount()" class="material-icons account-icon">account_circle</i>
-        <i class="material-icons cart-icon">shopping_cart</i>
+        <div class="cart-icon-container" (click)="navigateToCart()">
+            <i class="material-icons cart-icon">shopping_cart</i>
+            <div class="cart-counter" *ngIf="cartCount > 0">{{ cartCount }}</div>
+        </div>
     </div>
     <div *ngIf="!userLoggedIn" class="icons">
         <i (click)="navigateToLogin()" class="material-icons login-icon">login</i>

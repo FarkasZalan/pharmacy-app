@@ -9,7 +9,10 @@
         name="email" 
         ngModel
         placeholder="email cím megadása" 
-        required>
+        required
+        email
+        #emailInput="ngModel">
+        <span class="help-block" *ngIf="emailInput.touched && !emailInput.valid">Érvénytelen email cím!</span>
       </div>
       <div class="form-group">
         <label for="password">Jelszó:</label>
@@ -19,10 +22,13 @@
          name="password" 
          ngModel
          placeholder="jelszó megadása"
-         required>
+         required
+         #passwordInput="ngModel">
+         <span class="help-block" *ngIf="passwordInput.touched && !passwordInput.valid">Nem hagyhatod üresen ezt a mezőt!</span>
       </div>
-      <button type="submit">Bejelentkezés</button><br>
+      <button type="submit" nbButton [disabled]="!form.valid" disabled>Bejelentkezés</button><br>
       <p>Még nincsen fiókod?</p>
       <button type="button" (click)="goToRegister()" class="register-btn">Regisztráció</button>
+      <span class="help-block-login-error" *ngIf="errorMessage">Érvénytelen email vagy jelszó!</span>
     </form>
   </div>

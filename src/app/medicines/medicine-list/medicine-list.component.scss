@@ -1,0 +1,60 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-menu {
+  margin-top: 2%;
+  width: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.filter-menu mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start; 
+  margin: 0 auto;
+  max-width: 1200px; 
+}
+
+.card-column {
+  flex-basis: calc(25% - 20px);
+  margin: 40px 10px;
+}
+
+.custom-card {
+  width: 250px;
+  height: 400px;
+  cursor: pointer;
+}
+
+.custom-card:hover {
+  background-color: #e5e5e5;
+}
+
+.custom-card:hover img {
+  filter: brightness(90%);
+}
+
+mat-card-content {
+  text-align: center;
+}
+
+mat-card-title,
+mat-card-subtitle {
+  font-weight: bold;
+  margin-bottom: 5px;
+}

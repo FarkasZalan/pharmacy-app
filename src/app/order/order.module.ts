@@ -2,28 +2,27 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ProfileListComponent } from './profile-list/profile-list.component';
-import { ProfileRoutingModule } from './profile-routing.module';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
+import { CartComponent } from './cart/cart.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { OrderRoutingModule } from './order-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    ProfileRoutingModule,
+    OrderRoutingModule,
     MatListModule,
     MatCardModule,
     MatIcon
   ],
   declarations: [
-    ProfileListComponent,
-    ProfileEditComponent,
-    ProfileEditComponent
+    CartComponent,
+    OrderSummaryComponent
   ],
 })
-export class ProfileModule {
+export class OrderModule {
 }

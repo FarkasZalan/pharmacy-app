@@ -1,1 +1,15 @@
-<p>successfull-dialog works!</p>
+<mat-card>
+    <mat-card-content>
+        <div>
+            <img src="../../../assets/images/succedImage.jpg" alt="Email sent image">
+            <br>
+            <p class="sucessful-text">Sikeres módosíás</p>
+            <!-- back to login button -->
+            <div class="send-button-container">
+                <button (click)="hideDialog()" class="btn btn-primary" type="submit" nbButton status="success">
+                    Ok
+                </button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

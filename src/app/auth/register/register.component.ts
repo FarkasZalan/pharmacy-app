@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
@@ -15,16 +15,18 @@ export class RegisterComponent{
   newUser: User;
   password: string = "";
   errorMessage: boolean = false;
-  constructor(private router: Router, private location: Location, private authService: AuthService) {}
+  constructor(private location: Location, private authService: AuthService) {}
 
 
 
 
   register() {
     this.newUser = {
+      id: "",
       name: this.createUserForm.value.name,
       email: this.createUserForm.value.email,
-      address: this.createUserForm.value.address
+      address: this.createUserForm.value.address,
+      deleted: false
     }
     this.password = this.createUserForm.value.password;
     this.authService.register(this.newUser.email,

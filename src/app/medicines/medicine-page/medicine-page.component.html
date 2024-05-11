@@ -1,0 +1,29 @@
+<div class="container">
+    <mat-card class="medicine-card">
+        <mat-card-header>
+            <div class="header-img">
+                <img mat-card-image src="../../../assets/images/medicine.jpg" [alt]="selectedMedicine.name">
+            </div>
+        </mat-card-header>
+        <mat-card-title>{{ selectedMedicine.name }}</mat-card-title>
+        
+        <mat-card-content>
+            <p>{{ selectedMedicine.description }}</p>
+        </mat-card-content>
+        <mat-card-subtitle>Ár: {{ selectedMedicine.price }} Ft/db</mat-card-subtitle>
+        <mat-card-actions>
+            <div class="to-cart-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Mennyiség</mat-label>
+                    <input matInput [(ngModel)]="quantity" type="number" min="1" value="1">
+                </mat-form-field>
+                <button *ngIf="userLoggedIn" type="button" class="register-btn" (click)="addToCart()">Kosárba</button><br>   
+                <div *ngIf="!userLoggedIn" class="login-container">
+                    <p>A vásárlás megkezdéséhez előbb be kell jelentkezned!</p>
+                    <button name="loginButton" id="loginButton" type="button" class="register-btn" (click)="goToLogin()">Bejelentkezés</button>
+                </div>
+                <button type="button" class="register-btn" (click)="backToMenu()">Vissza</button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

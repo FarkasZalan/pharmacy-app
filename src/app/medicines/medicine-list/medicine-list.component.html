@@ -1,0 +1,34 @@
+
+<div class="container">
+    <div class="filter-menu">
+        <!-- Search bar -->
+        <mat-form-field class="form-field">
+            <mat-label>Keresés</mat-label>
+            <input matInput [(ngModel)]="filterBySearch" (input)="applyFilter()" placeholder="Kezdj el gépelni a kereséshez">
+        </mat-form-field>
+        <!-- Order filter -->
+        <mat-form-field>
+            <mat-label>Rendezés</mat-label>
+            <mat-select [(value)]="selectedSortOption" (selectionChange)="sortMedicines(selectedSortOption)">
+                <mat-option value="nameASC">Név (növekvő)</mat-option>
+                <mat-option value="nameDESC">Név (csökkenő)</mat-option>
+                <mat-option value="priceASC">Ár (növekvő)</mat-option>
+                <mat-option value="priceDESC">Ár (csökkenő)</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+<div class="card-container">
+    <div class="card-row">
+        <div class="card-column" *ngFor="let medicin of filteredMedicines">
+            <mat-card class="custom-card" (click)="openMedicinePage(medicin)">
+                <img mat-card-image src="../../../assets/images/medicine.jpg" alt="{{ medicin.name }}">
+                <mat-card-content>
+                    <mat-card-title fxLayout="row" fxLayoutAlign="space-between center">{{ medicin.name }}</mat-card-title>
+                    <mat-card-subtitle>{{ medicin.price }} Ft</mat-card-subtitle>
+                </mat-card-content>
+            </mat-card>
+        </div>
+</div>
+</div>
+

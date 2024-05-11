@@ -35,9 +35,11 @@ export class AuthService {
         const userAuth = await this.auth.createUserWithEmailAndPassword(emailInput, passwordInput);
         if (userAuth) {
             newUser = {
+                id: userAuth.user.uid,
                 email: emailInput,
                 name: nameInput,
                 address: addressInput,
+                deleted: false
             }
             await this.db.collection('users').doc(userAuth.user.uid).set(newUser);
           }
@@ -47,14 +49,36 @@ export class AuthService {
           console.error('Hiba a létrehozás során:', error);
           throw error;
         }
-      }
+    }
+
+    async modifyUser(editUser: User) {
+      await this.db.collection('users').doc(editUser.id).set(editUser);
+    }
 
     getCurrentUser(userId: string) {
         return this.db.collection('users').doc(userId).valueChanges();
-      } 
+    } 
     
-      logOut() {
+    logOut() {
          this.auth.signOut();
          this.router.navigate(['auth/login'])
-      }
+    }
+
+    async deleteUser(id: string) {
+       return await this.auth.currentUser.then(user => {
+          user?.delete().then(async () => {
+            await this.db.collection("users").doc(id).update({
+              deleted: true
+            })
+            this.router.navigate(['/']);
+          }).catch(error => {
+            console.log(error);
+          });
+      }).catch(error => {
+        return false;
+      });
+    }
+
+    
+
 }

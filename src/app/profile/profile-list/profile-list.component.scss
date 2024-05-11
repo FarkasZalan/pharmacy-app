@@ -21,10 +21,10 @@
   }
 
   .latest-orders {
-    border-top: 1px solid #ccc;
     padding-top: 20px;
   }
   .order {
+    border-top: 1px solid #ccc;
     margin-bottom: 10px;
   }
   .logout-btn-container {
@@ -49,16 +49,22 @@
   
   .edit-profile {
     position: absolute;
-    top: 50%;
+    top: 41%;
     right: 10%;
-    transform: translateY(-50%);
-    font-size: 20px;
+
+    transform: scale(2);
     opacity: 0;
     transition: opacity 0.3s ease;
     cursor: pointer;
-    font-size: 40px;
   }
   
   .user-details:hover .edit-profile {
     opacity: 1;
   }
+
+  .help-block-login-error {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}

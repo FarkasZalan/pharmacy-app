@@ -9,7 +9,9 @@
         name="name" 
         ngModel
         placeholder="Név cím megadása" 
-        required>
+        required
+        #nameInput="ngModel">
+        <span class="help-block" *ngIf="nameInput.touched && !nameInput.valid">Nem hagyhatod üresen ezt a mezőt!</span>
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
@@ -19,7 +21,10 @@
         name="email" 
         ngModel
         placeholder="Email cím megadása" 
-        required>
+        required
+        email
+        #emailInput="ngModel">
+        <span class="help-block" *ngIf="emailInput.touched && !emailInput.valid">Érvénytelen email cím!</span>
       </div>
       <div class="form-group">
         <label for="name">Lakcím:</label>
@@ -28,7 +33,9 @@
         name="address" 
         ngModel
         placeholder="Cím megadása" 
-        required>
+        required
+        #addressInput="ngModel">
+        <span class="help-block" *ngIf="addressInput.touched && !addressInput.valid">Nem hagyhatod üresen ezt a mezőt!</span>
       </div>
       <div class="form-group">
         <label for="password">Jelszó:</label>
@@ -38,10 +45,14 @@
         name="password" 
         ngModel
         placeholder="jelszó megadása" 
-        required>
+        required
+        minlength="6"
+        #passwordInput="ngModel">
+        <span class="help-block" *ngIf="passwordInput.touched && !passwordInput.valid">Nem hagyhatod üresen ezt a mezőt!</span>
       </div>
       <button type="submit">Regisztráció</button><br>
       <p>Már van fiókod?</p>
       <button type="button" (click)="backToLogin()" class="register-btn">Bejelentkezés</button>
+      <span class="help-block-login-error" *ngIf="errorMessage">Ez az email cím már használatban van!</span>
     </form>
   </div>

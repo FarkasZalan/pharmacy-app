@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
   email: string = "";
   password: string = "";
   errorMessage: boolean = false;
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router, private authService: AuthService, private location: Location) {
 
   }
 
@@ -22,7 +23,7 @@ export class LoginComponent {
     this.password = this.loginUserForm.value.password;
     this.authService.login(this.email, this.password).then((resolve) => {
       if (resolve) {
-        this.router.navigate(['/']);
+        this.location.back();
       } else {
         this.errorMessage = true;
       }

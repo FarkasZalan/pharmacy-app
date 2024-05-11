@@ -1,15 +1,17 @@
 <div class="login-container">
     <form class="login-form" (ngSubmit)="modify()" #form="ngForm">
-      <h2>Regisztráció</h2>
+      <h2>Profil szerkesztése</h2>
       <div class="form-group">
         <label for="name">Név:</label>
         <input 
         type="text" 
         id="name" 
         name="name" 
-        ngModel
+        [(ngModel)]="editUser.name"
         placeholder="Név cím megadása" 
-        required>
+        required
+        #nameInput="ngModel">
+        <span class="help-block" *ngIf="nameInput.touched && !nameInput.valid">Nem hagyhatod üresen ezt a mezőt!</span>
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
@@ -17,31 +19,23 @@
         type="email" 
         id="email" 
         name="email" 
-        ngModel
+        [(ngModel)]="editUser.email"
         placeholder="Email cím megadása" 
-        required>
+        disabled="true">
       </div>
       <div class="form-group">
         <label for="name">Lakcím:</label>
         <input type="text" 
         id="address" 
         name="address" 
-        ngModel
+        [(ngModel)]="editUser.address"
         placeholder="Cím megadása" 
-        required>
+        required
+        #addressInput="ngModel">
+        <span class="help-block" *ngIf="addressInput.touched && !addressInput.valid">Nem hagyhatod üresen ezt a mezőt!</span>
       </div>
-      <div class="form-group">
-        <label for="password">Jelszó:</label>
-        <input 
-        type="password" 
-        id="password" 
-        name="password" 
-        ngModel
-        placeholder="jelszó megadása" 
-        required>
-      </div>
-      <button type="submit">Regisztráció</button><br>
-      <p>Már van fiókod?</p>
-      <button type="button" (click)="backToLProfile()" class="register-btn">Bejelentkezés</button>
+      <button type="submit" [disabled]="!form.valid">Szerkesztés</button><br>
+      <button type="button" (click)="backToLProfile()" class="register-btn">Mégse</button>
+      <span class="help-block-login-error" *ngIf="errorMessage">Hiba történt!</span>
     </form>
   </div>

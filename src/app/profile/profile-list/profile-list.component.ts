@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { User } from '../../auth/user.model';
+import { MatDialog } from '@angular/material/dialog';
+import { ProfileEditComponent } from '../profile-edit/profile-edit.component';
+import { Router } from '@angular/router';
+import { CartService } from '../../order/cart/cart.service';
 
 @Component({
   selector: 'app-profile-list',
@@ -11,8 +15,10 @@ import { User } from '../../auth/user.model';
 export class ProfileListComponent implements OnInit {
 
   currentUser: User;
+  errorMessage: boolean = false;
 
-  constructor(private authService: AuthService, private auth: AngularFireAuth) {}
+  constructor(private authService: AuthService, private auth: AngularFireAuth,  private dialog: MatDialog, private router: Router, 
+              private cartService: CartService) {}
 
 
   ngOnInit(): void {
@@ -20,17 +26,25 @@ export class ProfileListComponent implements OnInit {
       if (userAuth) {
         this.authService.getCurrentUser(userAuth.uid).subscribe((user:User) => {
           this.currentUser = user;
-          console.log(this.currentUser)
         })
       }
     })
   }
 
   logOut() {
+    this.cartService.makeCartEmpty(this.currentUser.id);
     this.authService.logOut();
   }
 
-  profileDelete() {
+  goToEdit() {
+    this.dialog.open(ProfileEditComponent, {
+      data: {
+        userId: this.currentUser.id
+      }
+    });
+  }
 
+  profileDelete() {
+    this.authService.deleteUser(this.currentUser.id);
   }
 }

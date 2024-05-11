@@ -16,7 +16,7 @@
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 30px !important;
 }
 
 .logo a {
@@ -26,6 +26,7 @@
 
 .icons {
     display: flex;
+    font-size: 30px !important;
     gap: 20px;
     padding-right: 2%;
     white-space: nowrap;
@@ -35,10 +36,42 @@
     cursor: pointer;
 }
 
+.account-icon {
+    font-size: 30px !important;
+}
+
+.cart-icon {
+    font-size: 30px !important;
+}
+
+.login-icon {
+    font-size: 30px !important;
+}
+
 .cart-icon:hover {
     cursor: pointer;
 }
 
 .login-icon:hover {
     cursor: pointer;
+}
+
+.cart-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-counter {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
 }

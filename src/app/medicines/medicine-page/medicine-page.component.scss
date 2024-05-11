@@ -1,0 +1,121 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.medicine-card {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.header-img {
+    img {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.mat-mdc-card-header {
+    display: block;
+}
+
+mat-card-header {
+    text-align: center;
+}
+
+mat-card-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+mat-card-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+
+mat-card-content {
+    margin: 20px;
+    padding: 20px;
+    p {
+        font-size: 16px;
+        color: #333;
+    }
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: center;
+    button {
+        background-color: #007bff; // Adjust color as needed
+        color: white;
+        &:hover {
+            background-color: #0056b3; // Adjust color as needed
+        }
+    }
+}
+
+button {
+    width: 30%;
+    padding: 12px;
+    background-color: #00d68f;
+    color: #fff;
+    border: 1px solid #01bb7d; /* Added border for consistency */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  button:hover {
+    background-color: #2ce69b;
+  }
+
+  .register-btn {
+    background-color: #00d68f !important;
+    border-color: #01bb7d;
+  }
+  
+  .register-btn:hover {
+    background-color: #2ce69b !important;
+  }
+
+  .to-cart-container {
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    margin-top: 20px;
+}
+
+.to-cart-container mat-form-field {
+    margin-bottom: 10px; /* Add margin between input and button */
+}
+
+.to-cart-container button {
+    width: 150px;
+    padding: 12px;
+    background-color: #00d68f;
+    color: #fff;
+    border: 1px solid #01bb7d;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.to-cart-container button:hover {
+    background-color: #2ce69b;
+}
+
+mat-label {
+    color: #666;
+}
+
+.login-container {
+    text-align: center;
+    margin-bottom: 20px;
+}

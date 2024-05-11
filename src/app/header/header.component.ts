@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { Router } from "@angular/router";
-import { AuthService } from "../auth/auth.service";
 import { User } from "../auth/user.model";
+import { CartService } from "../order/cart/cart.service";
 
 
 @Component({
@@ -13,33 +13,45 @@ import { User } from "../auth/user.model";
 export class HeaderComponent implements OnInit {
 
   userLoggedIn: boolean = false;
-  loggedUser: User;
+  cartCount: number = 0;
 
   constructor(private router: Router,
-              private authService: AuthService,
-              private auth: AngularFireAuth) {}
+              private auth: AngularFireAuth,
+              private cartService: CartService) {}
 
 
   ngOnInit(): void {
     this.auth.authState.subscribe((userAuth:any) => {
       if (userAuth) {
         this.userLoggedIn = true;
+        this.cartService.getCartSize(userAuth.uid)
+        .then((size: number) => {
+          this.cartCount = size;
+        })
+        .catch(() => {
+          this.cartCount = 0;
+        })
       } else {
         this.userLoggedIn = false;
       }
-    })
+    });
+
+    
   }
 
   navigateToAccount() {
     this.router.navigate(['/profile']);
   }
 
-//click to logo and then navigate home
 navigateHome() {
   this.router.navigate(['/home']);
 }
 
 navigateToLogin() {
   this.router.navigate(['/auth']);
+}
+
+navigateToCart() {
+  this.router.navigate(['/order/cart']);
 }
 }

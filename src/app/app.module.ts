@@ -14,6 +14,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AuthGuard } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { CartComponent } from './order/cart/cart.component';
+import { OrderSummaryComponent } from './order/order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +30,7 @@ import { AuthService } from './auth/auth.service';
     FooterComponent,
     HeaderComponent,
     AuthComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +39,11 @@ import { AuthService } from './auth/auth.service';
     AngularFireModule.initializeApp(environment.firebase),
     MatDialogModule,
     AngularFirestoreModule,
+    MatListModule,
+    MatCardModule,
+    MatIconModule,
+    MatSelectModule,
+    MatInputModule,
   ],
   providers: [
     provideAnimationsAsync(), 

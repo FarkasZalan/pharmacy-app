@@ -1,31 +1,30 @@
-.send-button-container {
-    margin-top: 20px;
+.flex-centered {
+    margin: auto;
+  }
+  mat-card-content {
+    display: flex;
+  }
+  
+  .title {
     text-align: center;
-}
-
-.title {
+  }
+  
+  .sub-title {
     text-align: center;
-}
-
-img {
-    max-height: 200px;
-    border-radius: 100%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
-.sucessful-text {
-    text-align: center;
-}
-
-button {
+    margin-bottom: 3rem;
+  }
+  
+  .home-button {
+    margin-bottom: 2rem;
+  }
+  
+  button {
     width: 100%;
     padding: 12px;
     background-color: #00d68f;
     color: #fff;
-    border: 1px solid #01bb7d;
+    border: 1px solid #01bb7d; /* Added border for consistency */
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;

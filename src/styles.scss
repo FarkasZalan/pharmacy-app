@@ -9,6 +9,7 @@ html, body {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 10;
     background-color: #efefef !important;
 }
 
@@ -23,4 +24,17 @@ html, body {
     width: 100%;
     padding: 1%;
     background-color: #efefef;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Optional: Ensure that scrollable areas still scroll */
+/* You may need to adjust this based on your layout */
+.scrollable-area {
+    overflow: auto;
 }

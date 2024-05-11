@@ -11,14 +11,14 @@
   }
   
   .login-form {
-    width: 320px; /* Adjusted width to accommodate the button */
+    width: 320px;
     padding: 30px;
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
+    align-items: center; 
   }
   
   .form-group {
@@ -32,7 +32,7 @@
     font-weight: bold;
     margin-bottom: 5px;
     color: #555;
-    align-self: flex-start; /* Align labels to the left */
+    align-self: flex-start;
   }
   
   input[type="email"]:focus,
@@ -51,7 +51,7 @@
     border-radius: 5px;
     background-color: #fff;
     transition: border-color 0.3s ease;
-    box-sizing: border-box; /* Include padding and border in width calculation */
+    box-sizing: border-box;
   }
   
   button {
@@ -59,7 +59,7 @@
     padding: 12px;
     background-color: #00d68f;
     color: #fff;
-    border: 1px solid #01bb7d; /* Added border for consistency */
+    border: 1px solid #01bb7d;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -71,10 +71,25 @@
   }
 
   .register-btn {
-    background-color: #00d68f; /* Different color for register button */
+    background-color: #00d68f;
     border-color: #01bb7d;
   }
   
   .register-btn:hover {
     background-color: #2ce69b;
   }
+
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+input.ng-valid {
+    border: 1px solid green;
+}
+
+.help-block-login-error {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}

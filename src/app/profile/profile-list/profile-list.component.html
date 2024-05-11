@@ -1,30 +1,36 @@
-
-
 <div class="profile-text">
     <h1>Felhasználói profil</h1>
   </div>
   <div class="container">
-    <div class="user-details">
-      <h2>Felhasználó adatai</h2>
-      <!-- Display user details here -->
-      <p>Név: {{ currentUser.name }}</p>
-      <p>Email: {{ currentUser.email }}</p>
-      <p>Cím: {{ currentUser.address }}</p>
-      <i class="material-icons edit-profile">edit</i>
-    </div>
+    <!-- user details section -->
+    <mat-card class="user-details">
+      <mat-card-header>
+        <mat-card-title>Felhasználó adatai</mat-card-title>
+      </mat-card-header>
+      <mat-card-content >
+        <p>Név: {{ currentUser.name }}</p>
+        <p>Email: {{ currentUser.email }}</p>
+        <p>Cím: {{ currentUser.address }}</p>
+        <mat-icon (click)="goToEdit()" class="material-icons edit-profile">edit</mat-icon>
+      </mat-card-content>
+    </mat-card>
+  <!-- orders section  -->
     <div class="latest-orders">
       <h2>Legutóbbi rendelések</h2>
-
-      <div class="order">
-        <p>Order ID: 123456</p>
-        <p>Items: Medicine A, Medicine B</p>
-        <p>Total: $50.00</p>
-      </div>
-      <div class="order">
-        <p>Rendelés azonosító: 789012</p>
-        <p>Termékek: Medicine C, Medicine D</p>
-        <p>Összesen: $70.00</p>
-      </div>
+      <mat-list class="order">
+        <mat-list-item>
+          <span matListItemTitle>Rendelés azonosító</span>
+          <span matListItemLine>123456</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Termékek</span>
+          <span matListItemLine>Medicine C, Medicine D</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Összesen</span>
+          <span matListItemLine>$70.00</span>
+        </mat-list-item>
+      </mat-list>
     </div>
     <div class="logout-btn-container">
         <button (click)="logOut()" class="logout-btn">Kijelentkezés</button>
@@ -32,4 +38,5 @@
     <div class="logout-btn-container">
         <button (click)="profileDelete()" class="logout-btn">Profil törlése</button>
     </div>
+    <span class="help-block-login-error" *ngIf="errorMessage">Hiba lépett fel a törlés során!</span>
   </div>
