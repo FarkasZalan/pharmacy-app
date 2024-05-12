@@ -4,24 +4,18 @@ Webfejlesztési keretrendszerek 2024 projekt
 
 ## Funkciók
 
-Az oldalon lehet termékekre név és ár szerint szűrni, 
+- Az oldalon lehet termékekre név és ár szerint szűrni, le van védve a profile és rendeléshez tartozó routing AuthGuarddal.
+- ngOnDestroy és ngOnInit használata a termékek feltölréséhez (app.component.ts)
+- lekérdezések servicekben lettek megvalósítva
+- Lehet felhasználót regisztrálni, szerkeszteni az adatait és törölni is a profil oldalon
+- Bejeletkezés után el lehet kezdeni a kosarat össze rakni majd ezt is lehet szerkeszteni és törölni (firebasben tárolom le a kosarat is szóval itt is megjelenik minden CRUD művelet) majd végül le lehet adni a rendelést.
+- A profil oldalon minden előző rendelése a felhasználónak meg van jelenítve és minden rendelés kattintható amivel el lehet jutni a rendelés részletező oldalra
+- Az oldalon nincsen megvalósítva a töltőképernyő szóval ha például létrehozol új felhasználót, rendelést akkor lehet minimális időt igénybe vesz hogy betöltsön
+(a fiók törlése nem mindig működik, néha valamiért nem csinál semmit és a törlést sem hajtja végre, oldalról sem navigál el, csak erre már nem volt időm hogy pontosan utána nézzek mi okozza :( )
 
-## Code scaffolding
+host: https://pharmanancy-app.web.app/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Elérhetőség:
+discord: kolbasz9234
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
