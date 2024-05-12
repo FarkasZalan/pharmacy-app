@@ -1,1 +1,43 @@
-<p>order-summary works!</p>
+<div class="container">
+    <div class="profile-text">
+        <h1>Rendelésed rögzítve</h1>
+      </div>
+      <div class="container">
+    <div class="latest-orders">
+        <h2>Rendelés részletei:</h2>
+        <mat-list class="order">
+          <mat-list-item>
+            <span matListItemTitle>Rendelés azonosító:</span>
+            <span matListItemLine>{{ orderSummary.id }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Termékek:</span>
+            <span matListItemLine>{{ orderItems }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Rendelés ideje:</span>
+            <span matListItemLine>{{ orderSummary.orderDate }} Ft</span>
+          </mat-list-item>
+        </mat-list>
+        <mat-card class="user-details">
+            <mat-card-header>
+              <mat-card-title>Szállítási adatok:</mat-card-title>
+            </mat-card-header><br>
+            <mat-card-content >
+              <p>Név: {{ currentUser.name }}</p>
+              <p>Email: {{ currentUser.email }}</p>
+              <p>Cím: {{ currentUser.address }}</p>
+            </mat-card-content>
+    
+            <mat-card-actions>
+                <div class="to-cart-container">
+                    
+                    <p class="total">Összesen: {{ orderSummary.total }} Ft</p>
+                    <button type="button" class="register-btn" (click)="backToMenu()">Főoldal</button><br>
+                </div>
+                
+            </mat-card-actions>
+          </mat-card>
+      </div>
+      </div>
+</div>

@@ -28,13 +28,3 @@ html, body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-/* Optional: Ensure that scrollable areas still scroll */
-/* You may need to adjust this based on your layout */
-.scrollable-area {
-    overflow: auto;
-}

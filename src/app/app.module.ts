@@ -20,8 +20,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { CartComponent } from './order/cart/cart.component';
-import { OrderSummaryComponent } from './order/order-summary/order-summary.component';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { Router } from "@angular/router";
-import { User } from "../auth/user.model";
 import { CartService } from "../order/cart/cart.service";
 
 
@@ -25,12 +24,9 @@ export class HeaderComponent implements OnInit {
       if (userAuth) {
         this.userLoggedIn = true;
         this.cartService.getCartSize(userAuth.uid)
-        .then((size: number) => {
+        .subscribe((size: number) => {
           this.cartCount = size;
-        })
-        .catch(() => {
-          this.cartCount = 0;
-        })
+        });
       } else {
         this.userLoggedIn = false;
       }

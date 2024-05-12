@@ -8,6 +8,7 @@ import { MatIcon } from '@angular/material/icon';
 import { CartComponent } from './cart/cart.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { OrderRoutingModule } from './order-routing.module';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { OrderRoutingModule } from './order-routing.module';
   ],
   declarations: [
     CartComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    OrderConfirmationComponent
   ],
 })
 export class OrderModule {

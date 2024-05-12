@@ -6,6 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ProfileEditComponent } from '../profile-edit/profile-edit.component';
 import { Router } from '@angular/router';
 import { CartService } from '../../order/cart/cart.service';
+import { Order } from '../../order/order.model';
+import { OrderService } from '../../order/order.service';
 
 @Component({
   selector: 'app-profile-list',
@@ -16,9 +18,10 @@ export class ProfileListComponent implements OnInit {
 
   currentUser: User;
   errorMessage: boolean = false;
+  latestOrders: Order[] = [];
 
   constructor(private authService: AuthService, private auth: AngularFireAuth,  private dialog: MatDialog, private router: Router, 
-              private cartService: CartService) {}
+              private cartService: CartService, private orderService: OrderService) {}
 
 
   ngOnInit(): void {
@@ -26,9 +29,18 @@ export class ProfileListComponent implements OnInit {
       if (userAuth) {
         this.authService.getCurrentUser(userAuth.uid).subscribe((user:User) => {
           this.currentUser = user;
+          this.orderService.getUserLatestOrders(this.currentUser.id).subscribe((orders:Order[]) => {
+            this.latestOrders = orders;
+            
+          });
+            
         })
       }
     })
+  }
+
+  goToOrderSummary(orderId: string) {
+    this.router.navigate(['order/order-summary', orderId]);
   }
 
   logOut() {

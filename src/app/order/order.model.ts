@@ -1,10 +1,9 @@
-import { User } from "../auth/user.model";
 import { CartItem } from "./cart/cart.model";
-import { Timestamp } from "firebase/firestore";
 
 export interface Order {
-    cartItems: CartItem[],
-    userId: User
+    id?: string,
+    cartItems: CartItem,
+    userId: string
     total: number;
-    orderDate: Timestamp;
+    orderDate: string;
 }

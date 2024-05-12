@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from '../auth/auth/auth.component';
 import { CartComponent } from './cart/cart.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 export const routes: Routes = [
     {
@@ -19,9 +20,13 @@ export const routes: Routes = [
           component: CartComponent
         },
         {
-            path: 'order-summary',
+          path: 'order-confirm',
+          component: OrderConfirmationComponent
+      },
+        {
+            path: 'order-summary/:id',
             component: OrderSummaryComponent
-          },
+        },
       ]
     },
   ];

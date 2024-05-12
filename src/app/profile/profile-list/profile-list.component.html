@@ -17,21 +17,17 @@
   <!-- orders section  -->
     <div class="latest-orders">
       <h2>Legutóbbi rendelések</h2>
-      <mat-list class="order">
+      <mat-list (click)="goToOrderSummary(order.id)" class="order" *ngFor="let order of latestOrders">
         <mat-list-item>
           <span matListItemTitle>Rendelés azonosító</span>
-          <span matListItemLine>123456</span>
-        </mat-list-item>
-        <mat-list-item>
-          <span matListItemTitle>Termékek</span>
-          <span matListItemLine>Medicine C, Medicine D</span>
+          <span matListItemLine>{{ order.id }}</span>
         </mat-list-item>
         <mat-list-item>
           <span matListItemTitle>Összesen</span>
-          <span matListItemLine>$70.00</span>
+          <span matListItemLine>{{ order.total }} Ft</span>
         </mat-list-item>
       </mat-list>
-    </div>
+    </div><br>
     <div class="logout-btn-container">
         <button (click)="logOut()" class="logout-btn">Kijelentkezés</button>
     </div><br>

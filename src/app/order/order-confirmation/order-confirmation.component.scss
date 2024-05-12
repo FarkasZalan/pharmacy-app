@@ -28,8 +28,9 @@ mat-card-title {
 
 mat-card-subtitle {
     text-align: center;
-    font-size: 18px;
     margin-top: 1%;
+    font-size: 18px;
+    margin-bottom: 1%;
     color: #666;
 }
 
@@ -40,6 +41,18 @@ mat-card-content {
         font-size: 16px;
         color: #333;
     }
+}
+
+.user-details {
+    text-align: center;
+    box-shadow: 20px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.total {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 mat-card-actions {
@@ -101,6 +114,11 @@ button {
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+}
+
+.mofify-button {
+    margin-top: 1%;
+    width: 10%;
 }
 
 .input-container {

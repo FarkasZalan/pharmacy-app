@@ -1,0 +1,73 @@
+.latest-orders {
+    padding-top: 20px;
+  }
+
+  .profile-text {
+    padding: 20px;
+    text-align: center;
+  }
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .user-details {
+    box-shadow: 20px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mdc-card__actions {
+    display: block;
+}
+
+.total {
+    margin-top: 3%;
+    margin-bottom: 5%;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+button {
+    width: 25%;
+    padding: 12px;
+    background-color: #00d68f;
+    color: #fff;
+    border: 1px solid #01bb7d; /* Added border for consistency */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .mdc-list-item__secondary-text {
+    margin-left: 1%;
+  }
+
+  mat-card-content{
+    margin-left: 1%;
+  }
+  
+  button:hover {
+    background-color: #2ce69b;
+  }
+
+  .register-btn {
+    background-color: #00d68f !important;
+    border-color: #01bb7d;
+  }
+  
+  .register-btn:hover {
+    background-color: #2ce69b !important;
+  }
+
+  .to-cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}

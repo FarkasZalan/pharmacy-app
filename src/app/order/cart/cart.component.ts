@@ -69,7 +69,6 @@ export class CartComponent implements OnInit{
   }
 
    goToOrder() {
-    let needToDelete = []
     for(let cartElement of this.medicines) {
       if (cartElement.quantity === 0) {
         delete this.cartItem.medicineCart[cartElement.medicineId];
@@ -77,8 +76,13 @@ export class CartComponent implements OnInit{
         this.cartItem.medicineCart[cartElement.medicineId] = cartElement.quantity;
       }
     }
-
     this.cartService.updateCartElments(this.cartItem);
-    this.router.navigate(['order/order-summary']);
+    this.router.navigate(['order/order-confirm']);
+  }
+
+  deleteMedicineFromCart(elementId: string) {
+    delete this.cartItem.medicineCart[elementId];
+    delete this.medicines[elementId];
+    this.cartService.updateCartElments(this.cartItem);
   }
 }

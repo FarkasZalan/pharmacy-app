@@ -13,10 +13,13 @@
                 <mat-card-subtitle>Egységár: {{ medicineItem.medicine.price }} Ft/db</mat-card-subtitle>
                 <mat-card-actions>
                     <div class="to-cart-container">
-                        <mat-form-field appearance="fill">
-                            <mat-label>Mennyiség:</mat-label>
-                            <input [(ngModel)]="medicineItem.quantity" type="number" min="0" [value]="medicineItem.quantity">
-                        </mat-form-field>
+                        <div class="input-container">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Mennyiség:</mat-label>
+                                <input [(ngModel)]="medicineItem.quantity" type="number" min="1" [value]="medicineItem.quantity">
+                            </mat-form-field>
+                            <button type="button" class="delete-button" (click)="deleteMedicineFromCart(medicineItem.medicineId)">Eltávolítás</button>
+                        </div>
                     </div>
                 </mat-card-actions>
             </div>

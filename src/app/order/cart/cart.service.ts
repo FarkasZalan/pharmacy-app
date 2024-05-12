@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { CartItem } from "../cart/cart.model";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -38,7 +39,6 @@ export class CartService {
                     await this.db.collection("cart").doc(doc.id).update({
                         medicineCart: cartItem.medicineCart
                     });
-                    window.location.reload();
                 });
                 } else {
                     // ha még üres a kosár
@@ -49,7 +49,6 @@ export class CartService {
                     cartItem.medicineCart = medicineCartObject as Map<string, number>;
 
                     await this.db.collection("cart").add(cartItem);
-                    window.location.reload();
                 }
             })
             .catch((error) => {
@@ -57,28 +56,22 @@ export class CartService {
             })
     }
 
-    getCartSize(userId: string) {
-        return new Promise<number>((resolve, reject) => {
-            this.db.collection("cart").ref
-                .where("userId", "==", userId)
-                .where("closed", "==", false)
-                .get()
-                .then(querySnapshot => {
-                    let totalSize = 0;
-                    querySnapshot.forEach(doc => {
-                        const existingCartItem = doc.data() as CartItem;
-                        const existingMedicineCart = existingCartItem.medicineCart;
-                        const size = Object.keys(existingMedicineCart).length;
-                        totalSize += size;
-                    });
-                    resolve(totalSize);
-                })
-                .catch(error => {
-                    console.error("Error getting cart size:", error);
-                    reject(error);
-                });
+    getCartSize(userId: string): Observable<number> {
+        return new Observable<number>((observer) => {
+          this.db.collection("cart", ref => 
+            ref.where("userId", "==", userId).where("closed", "==", false)
+          ).snapshotChanges().subscribe((snapshots) => {
+            let totalSize = 0;
+            snapshots.forEach((snapshot) => {
+              const existingCartItem = snapshot.payload.doc.data() as CartItem;
+              const existingMedicineCart = existingCartItem.medicineCart;
+              const size = Object.keys(existingMedicineCart).length;
+              totalSize += size;
+            });
+            observer.next(totalSize);
+          });
         });
-    }
+      }
 
     makeCartEmpty(userId: string) {
         this.db.collection("cart").ref
@@ -117,7 +110,9 @@ export class CartService {
                     medicineCart: cartElement.medicineCart,
                     userId: cartElement.userId
             });
+            window.location.reload();
         });
+        
     })
     }
 

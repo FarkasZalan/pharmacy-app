@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
@@ -33,6 +32,7 @@ export class RegisterComponent{
       this.newUser.name, this.newUser.address, this.password
     ).then((resolve) => {
       if (resolve) {
+        this.authService.logOut();
         this.location.back();
       } else {
         this.errorMessage = true;

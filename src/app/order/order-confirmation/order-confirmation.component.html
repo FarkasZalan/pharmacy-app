@@ -1,0 +1,40 @@
+<div class="container">
+    <mat-card class="medicine-card">
+        <mat-card-header>
+            <mat-card-title>
+                <p class="cart-text">Rendelés leadása</p>
+            </mat-card-title>
+        </mat-card-header>
+        <div class="cart-items">
+            
+            <div class="item" *ngFor="let medicineItem of medicines">
+                <mat-card-title>{{ medicineItem.medicine.name }}</mat-card-title>
+            
+                <mat-card-subtitle> {{ medicineItem.quantity }} X {{ medicineItem.medicine.price }} Ft</mat-card-subtitle>
+            </div>
+            
+        </div>
+
+        <mat-card class="user-details">
+            <mat-card-header>
+              <mat-card-title>Szállítási adatok:</mat-card-title>
+            </mat-card-header>
+            <mat-card-content >
+              <p>Név: {{ currentUserOrder.name }}</p>
+              <p>Email: {{ currentUserOrder.email }}</p>
+              <p>Cím: {{ currentUserOrder.address }}</p>
+              <button type="button" class="register-btn mofify-button" (click)="goToProfile()">Módosítás</button><br>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card-actions>
+            <div class="to-cart-container">
+                
+                    <p class="total">Összesen: {{ total }} Ft</p>
+                <button type="button" class="register-btn" (click)="makeOrder()">Rendelés leadása</button><br>
+                <button type="button" class="register-btn back" (click)="backToCart()">Vissza a kosárhoz</button>
+            </div>
+        </mat-card-actions>
+        
+    </mat-card>
+</div>
