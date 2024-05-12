@@ -35,9 +35,7 @@ export class HeaderComponent implements OnInit {
         this.userLoggedIn = false;
       }
     });
-
-    
-  }
+  } 
 
   navigateToAccount() {
     this.router.navigate(['/profile']);

@@ -2,6 +2,8 @@ import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { Medicine } from "./medicine.model";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import { CartItem } from "../order/cart/cart.model";
+import { map } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -22,21 +24,21 @@ export class MedicineService {
 
     goToMedicinePage(medicine: Medicine) {
         this.db.collection('medicines').ref
-    .where('name', '==', medicine.name)
-    .where('price', '==', medicine.price)
-    .where('description', '==', medicine.description)
-    .get()
-    .then(document => {
-      if (!document.empty) {
-        const medicineId = document.docs[0].id;
-        this.router.navigate(['/medicine-details', medicineId]);
-      } else {
-        console.log('Document not found');
-      }
-    })
-    .catch(error => {
-      console.error('Error getting document:', error);
-    });
+            .where('name', '==', medicine.name)
+            .where('price', '==', medicine.price)
+            .where('description', '==', medicine.description)
+            .get()
+            .then(document => {
+               if (!document.empty) {
+                 const medicineId = document.docs[0].id;
+                  this.router.navigate(['/medicine-details', medicineId]);
+                } else {
+                  console.log('Document not found');
+                }
+            })
+          .catch(error => {
+              console.error('Error getting document:', error);
+          });
     }
 
     getMedicineById(id: string) {

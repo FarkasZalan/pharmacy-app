@@ -1,1 +1,39 @@
-<p>cart works!</p>
+  <div class="container">
+    <mat-card class="medicine-card">
+        <mat-card-header>
+            <mat-card-title>
+                <p class="cart-text">Kosár</p>
+            </mat-card-title>
+        </mat-card-header>
+        <div class="cart-items" *ngIf="cartSize > 0">
+            
+            <div class="item" *ngFor="let medicineItem of medicines">
+                <mat-card-title>{{ medicineItem.medicine.name }}</mat-card-title>
+            
+                <mat-card-subtitle>Egységár: {{ medicineItem.medicine.price }} Ft/db</mat-card-subtitle>
+                <mat-card-actions>
+                    <div class="to-cart-container">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Mennyiség:</mat-label>
+                            <input [(ngModel)]="medicineItem.quantity" type="number" min="0" [value]="medicineItem.quantity">
+                        </mat-form-field>
+                    </div>
+                </mat-card-actions>
+            </div>
+            
+        </div>
+
+        <div #emptyCart class="cart-items" *ngIf="cartSize === 0">
+            <mat-card-title>Üres a kosarad!</mat-card-title>
+        </div>
+        <mat-card-actions>
+            <div class="to-cart-container">
+                <button type="button" *ngIf="cartSize > 0" class="register-btn" (click)="goToOrder()">Rendelés folytatása</button><br>   
+                <button type="button" *ngIf="cartSize > 0" class="logout-btn" (click)="emptyCart()">Kosár ürítése</button>
+                <button type="button" class="register-btn back" (click)="backToMenu()">Vissza a termékekhez</button>
+            </div>
+            
+        </mat-card-actions>
+        
+    </mat-card>
+</div>

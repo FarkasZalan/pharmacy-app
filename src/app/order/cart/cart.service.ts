@@ -16,6 +16,7 @@ export class CartService {
             .get()
             .then(async (medicineCart) => {
                 if (!medicineCart.empty) {
+                    // ha már van a kosárban termék
                     medicineCart.forEach(async (doc) => {
                     const existingCartItem = doc.data() as CartItem;
                     const existingMedicineCart = existingCartItem.medicineCart;
@@ -40,6 +41,7 @@ export class CartService {
                     window.location.reload();
                 });
                 } else {
+                    // ha még üres a kosár
                     const medicineCartObject = {};
                     Object.keys(cartItem.medicineCart).forEach(key => {
                         medicineCartObject[key] = cartItem.medicineCart[key];
@@ -88,10 +90,35 @@ export class CartService {
                     await this.db.collection("cart").doc(doc.id).update({
                         closed: true
                 });
+                window.location.reload();
             });
         })
         .catch(error => {
             console.error("Error getting cart size:", error);
         });
     }
+
+    getCartElements(userId: string) {
+        return this.db.collection("cart").ref
+        .where("userId", "==", userId)
+        .where("closed", "==", false)
+        .get();
+    }
+
+    updateCartElments(cartElement: CartItem) {
+         this.db.collection("cart").ref
+        .where("userId", "==", cartElement.userId)
+        .where("closed", "==", false)
+        .get()
+        .then(querySnapshot => {
+            querySnapshot.forEach(async doc => {
+                await this.db.collection("cart").doc(doc.id).update({
+                    closed: false,
+                    medicineCart: cartElement.medicineCart,
+                    userId: cartElement.userId
+            });
+        });
+    })
+    }
+
 }
