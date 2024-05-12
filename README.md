@@ -2,9 +2,9 @@
 
 Webfejlesztési keretrendszerek 2024 projekt
 
-## Development server
+## Funkciók
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Az oldalon lehet termékekre név és ár szerint szűrni, 
 
 ## Code scaffolding
 

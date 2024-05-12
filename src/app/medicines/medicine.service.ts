@@ -2,8 +2,6 @@ import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { Medicine } from "./medicine.model";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { CartItem } from "../order/cart/cart.model";
-import { map } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
