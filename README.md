@@ -1,6 +1,5 @@
 # Online gyógyszertár
-
-Webfejlesztési keretrendszerek 2024 projekt
+host: https://pharmanancy-app.web.app/
 
 ## Funkciók
 
@@ -12,10 +11,5 @@ Webfejlesztési keretrendszerek 2024 projekt
 - A profil oldalon minden előző rendelése a felhasználónak meg van jelenítve és minden rendelés kattintható amivel el lehet jutni a rendelés részletező oldalra
 - Az oldalon nincsen megvalósítva a töltőképernyő szóval ha például létrehozol új felhasználót, rendelést akkor lehet minimális időt igénybe vesz hogy betöltsön
 (a fiók törlése nem mindig működik, néha valamiért nem csinál semmit és a törlést sem hajtja végre, oldalról sem navigál el, csak erre már nem volt időm hogy pontosan utána nézzek mi okozza :( )
-
-host: https://pharmanancy-app.web.app/
-
-Elérhetőség:
-discord: kolbasz9234
 
 
